@@ -1,0 +1,64 @@
+{
+  "steps": [
+    {
+      "step": "setState",
+      "accounts": {
+        "address:owner": {
+          "nonce": "1",
+          "balance": "1000000000000000000"
+        }
+      },
+      "newAddresses": [
+        {
+          "creatorAddress": "address:owner",
+          "creatorNonce": "1",
+          "newAddress": "sc:contract"
+        }
+      ]
+    },
+    {
+      "step": "scDeploy",
+      "id": "deploy",
+      "tx": {
+        "from": "address:owner",
+        "contractCode": "file:../output/chainballotx.wasm",
+        "gasLimit": "100000000000"                           
+      },
+      "expect": {
+        "out": [],
+        "status": "0"
+      }
+    },
+    {
+      "step": "scCall",
+      "id": "create-proposal",
+      "tx": {
+        "from": "address:owner",
+        "to": "sc:contract",
+        "function": "create_proposal",
+        "arguments": [
+          "str:Test Proposal",
+          "str:This is a test proposal description",
+          "86400"
+        ],
+        "gasLimit": "50000000"
+      },
+      "expect": {
+        "out": [],
+        "status": "0"
+      }
+    },
+    {
+      "step": "scQuery",
+      "id": "check-total-proposals",
+      "tx": {
+        "to": "sc:contract",
+        "function": "get_total_proposals"
+      },
+      "expect": {
+        "out": ["1"],
+        "status": "0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "steps": [
+    {
+      "step": "setState", 
+      "accounts": {
+        "address:owner": {
+          "nonce": "1",
+          "balance": "1000000000000000000"
+        },
+        "address:user": {
+          "nonce": "1",
+          "balance": "1000000000000000000"
+        }
+      },
+      "newAddresses": [
+        {
+          "creatorAddress": "address:owner",
+          "creatorNonce": "1",
+          "newAddress": "sc:contract"
+        }
+      ]
+    },
+    {
+      "step": "scDeploy",
+      "tx": {
+        "from": "address:owner",
+        "contractCode": "file:../output/chainballotx.wasm", 
+        "gasLimit": "100000000000"
+      },
+      "expect": {
+        "status": "0"
+      }
+    },
+    {
+      "step": "scCall",
+      "tx": {
+        "from": "address:owner",
+        "to": "sc:contract",
+        "function": "pause",
+        "gasLimit": "30,000,000"
+      },
+      "expect": {
+        "status": "0"
+      }
+    },
+    {
+      "step": "scQuery",
+      "tx": {
+        "to": "sc:contract", 
+        "function": "is_contract_paused"
+      },
+      "expect": {
+        "out": ["true"],
+        "status": "0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+# =================================
+# ChainBallotX - MultiversX Project
+# =================================
+
+# =============
+# NODE.JS / NEXT.JS
+# =============
+node_modules/
+.next/
+out/
+build/
+dist/
+.env*
+!.env.example
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm
+.yarn-integrity
+*.tsbuildinfo
+next-env.d.ts
+
+# =============
+# MULTIVERSX / RUST
+# =============
+target/
+output/
+*.wasm
+*.wat
+*.abi.json
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# MultiversX específico
+/interaction/
+/meta/
+/wasm/
+/wasm-no-managed-ei/
+erdpy.json
+multiversx.json
+deploy-*.json
+scenarios/
+*.scen.json.generated
+
+# =============
+# CARTEIRAS E CHAVES (CRÍTICO!)
+# =============
+*.pem
+wallet.json
+wallets/
+carteiras/
+private_key.txt
+mnemonic.txt
+seed.txt
+.secret
+
+# =============
+# AMBIENTES E CONFIGS
+# =============
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+config/local.toml
+.local.toml
+
+# =============
+# SISTEMA OPERACIONAL
+# =============
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# =============
+# IDEs E EDITORES
+# =============
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# =============
+# LOGS E TEMPORÁRIOS
+# =============
+*.log
+logs/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# =============
+# COVERAGE E TESTES
+# =============
+coverage/
+test-results/
+junit.xml
+tarpaulin-report.html
+
+# =============
+# DEPLOY E CI/CD
+# =============
+.vercel
+.cache/
+
+# =============
+# PROJETO ESPECÍFICO
+# =============
+# Pasta do projeto antigo
+OLDchainballotx/
+
+# Builds de desenvolvimento
+/.next
+/out
+
+# Cache do TypeScript
+*.tsbuildinfo
+
+# =============
+# MANTER ARQUIVOS IMPORTANTES
+# =============
+# Descomente se quiser incluir:
+# !.env.example
+# !README.md
+# !contracts/*.abi.json

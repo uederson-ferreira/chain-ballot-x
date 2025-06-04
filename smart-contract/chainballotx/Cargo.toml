@@ -1,0 +1,21 @@
+[package]
+name = "chainballotx"
+version = "0.0.0"
+edition = "2021"
+publish = false
+authors = ["Uederson de Amadeu Ferreira <uedersonferreira@gmail.com>"]
+description = "Sistema de votação descentralizada na blockchain MultiversX"
+
+[lib]
+path = "src/chainballotx.rs"
+
+[dependencies.multiversx-sc]
+version = "0.58.0"
+
+[dev-dependencies]
+num-bigint = "0.4"
+mandos = "0.18.0"
+
+[dev-dependencies.multiversx-sc-scenario]
+version = "0.58.0"
+
